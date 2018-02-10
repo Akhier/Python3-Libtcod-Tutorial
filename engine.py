@@ -15,6 +15,9 @@ def main():
     libtcod.console_init_root(
         screen_width, screen_height, 'libtcod tutorial revised', False)
 
+    key = libtcod.Key()
+    mouse = libtcod.Mouse()
+
     while not libtcod.console_is_window_closed():
         libtcod.console_set_default_foreground(0, libtcod.white)
         libtcod.console_put_char(
