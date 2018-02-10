@@ -19,6 +19,8 @@ def main():
     mouse = libtcod.Mouse()
 
     while not libtcod.console_is_window_closed():
+        libtcod.sys_check_for_event(libtcod.EVENT_KEY_PRESS, key, mouse)
+
         libtcod.console_set_default_foreground(0, libtcod.white)
         libtcod.console_put_char(
             0, player_x, player_y, '@', libtcod.BKGND_NONE)
