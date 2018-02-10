@@ -28,8 +28,12 @@ def main():
         libtcod.console_set_default_foreground(con, libtcod.white)
         libtcod.console_put_char(
             con, player_x, player_y, '@', libtcod.BKGND_NONE)
-        libtcod.console_blit(con, 0, 0, screen_width, screen_height, 0, 0, 0)
+        libtcod.console_blit(
+            con, 0, 0, screen_width, screen_height, 0, 0, 0)
         libtcod.console_flush()
+
+        libtcod.console_put_char(
+            con, player_x, player_y, ' ', libtcod.BKGND_NONE)
 
         action = handle_keys(key)
 
