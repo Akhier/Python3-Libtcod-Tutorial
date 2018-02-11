@@ -2,6 +2,7 @@ import libtcodpy as libtcod
 
 from entity import Entity
 from input_handlers import handle_keys
+from map_objects.game_map import GameMap
 from render_functions import clear_all, render_all
 
 
@@ -30,6 +31,8 @@ def main():
         screen_width, screen_height, 'libtcod tutorial revised', False)
 
     con = libtcod.console_new(screen_width, screen_height)
+
+    game_map = GameMap(map_width, map_height)
 
     key = libtcod.Key()
     mouse = libtcod.Mouse()
