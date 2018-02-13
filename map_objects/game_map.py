@@ -1,3 +1,4 @@
+from map_objects.rectangle import Rect
 from map_objects.tile import Tile
 
 
@@ -13,6 +14,14 @@ class GameMap:
                  for x in range(self.width)]
 
         return tiles
+
+    def make_map(self):
+        # Create two rooms for demonstration purposes
+        room1 = Rect(20, 15, 10, 15)
+        room2 = Rect(35, 15, 10, 15)
+
+        self.create_room(room1)
+        self.create_room(room2)
 
     def create_room(self, room):
         # go through the tiles in the rectangle and make them passable
