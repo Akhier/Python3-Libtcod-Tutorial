@@ -40,6 +40,20 @@ class GameMap:
                 if new_room.intersect(other_room):
                     break
 
+            else:
+                # this means there are no intersections, so this room is valid
+
+                # "paint" it to the map's tiles
+                self.create_room(new_room)
+
+                # center coordinates of new room, will be useful later
+                (new_x, new_y) = new_room.center()
+
+                if num_rooms == 0:
+                    # this is the first room, where the player starts at
+                    player.x = new_x
+                    player.y = new_y
+
     def create_room(self, room):
         # go through the tiles in the rectangle and make them passable
         for x in range(room.x1 + 1, room.x2):
