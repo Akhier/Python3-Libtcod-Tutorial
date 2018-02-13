@@ -16,6 +16,10 @@ def main():
     room_min_size = 6
     max_rooms = 30
 
+    fov_algorithm = 0
+    fov_light_walls = True
+    fov_radius = 10
+
     colors = {
         'dark_wall': libtcod.Color(0, 0, 100),
         'dark_ground': libtcod.Color(50, 50, 150)
