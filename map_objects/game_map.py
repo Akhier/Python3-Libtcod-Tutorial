@@ -1,3 +1,5 @@
+from random import randint
+
 from map_objects.rectangle import Rect
 from map_objects.tile import Tile
 
@@ -15,15 +17,19 @@ class GameMap:
 
         return tiles
 
-    def make_map(self):
-        # Create two rooms for demonstration purposes
-        room1 = Rect(20, 15, 10, 15)
-        room2 = Rect(35, 15, 10, 15)
+    def make_map(self, max_rooms, room_min_size, room_max_size,
+                 map_width, map_height, player):
 
-        self.create_room(room1)
-        self.create_room(room2)
+        rooms = []
+        num_rooms = 0
 
-        self.create_h_tunnel(25, 40, 23)
+        for r in range(max_rooms):
+            # random width and height
+            w = randint(room_min_size, room_max_size)
+            h = randint(room_min_size, room_max_size)
+            # random position without going out of the boundaries of the map
+            x = randint(0, map_width - w - 1)
+            y = randint(0, map_height - h - 1)
 
     def create_room(self, room):
         # go through the tiles in the rectangle and make them passable
