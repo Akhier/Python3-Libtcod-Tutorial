@@ -46,6 +46,8 @@ def main():
     game_map.make_map(max_rooms, room_min_size, room_max_size,
                       map_width, map_height, player)
 
+    fov_recompute = True
+
     key = libtcod.Key()
     mouse = libtcod.Mouse()
 
