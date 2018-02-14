@@ -31,7 +31,7 @@ def render_all(con, entities, game_map, fov_map, fov_recompute,
 
     # Draw all entities in the list
     for entity in entities:
-        draw_entity(con, entity)
+        draw_entity(con, entity, fov_map)
 
     libtcod.console_blit(con, 0, 0, screen_width, screen_height, 0, 0, 0)
 
