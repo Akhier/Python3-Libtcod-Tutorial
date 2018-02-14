@@ -11,3 +11,7 @@ def initialize_fov(game_map):
                 not game_map.tiles[x][y].blocked)
 
     return fov_map
+
+
+def recompute_fov(fov_map, x, y, radius, light_walls=True, algorithm=0):
+    libtcod.map_compute_fov(fov_map, x, y, radius, light_walls, algorithm)
