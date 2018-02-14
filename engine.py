@@ -1,7 +1,7 @@
 import libtcodpy as libtcod
 
 from entity import Entity
-from fov_functions import initialize_fov
+from fov_functions import initialize_fov, recompute_fov
 from input_handlers import handle_keys
 from map_objects.game_map import GameMap
 from render_functions import clear_all, render_all
@@ -56,6 +56,10 @@ def main():
 
     while not libtcod.console_is_window_closed():
         libtcod.sys_check_for_event(libtcod.EVENT_KEY_PRESS, key, mouse)
+
+        if fov_recompute:
+            recompute_fov(fov_map, player.x, player.y, fov_radius,
+                          fov_light_walls, fov_algorithm)
 
         render_all(con, entities, game_map,
                    screen_width, screen_height, colors)
