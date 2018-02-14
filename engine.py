@@ -74,6 +74,8 @@ def main():
             if not game_map.is_blocked(player.x + dx, player.y + dy):
                 player.move(dx, dy)
 
+                fov_recompute = True
+
         if exit:
             return True
 
