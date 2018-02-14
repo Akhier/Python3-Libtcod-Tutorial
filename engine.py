@@ -1,6 +1,7 @@
 import libtcodpy as libtcod
 
 from entity import Entity
+from fov_functions import initialize_fov
 from input_handlers import handle_keys
 from map_objects.game_map import GameMap
 from render_functions import clear_all, render_all
@@ -47,6 +48,8 @@ def main():
                       map_width, map_height, player)
 
     fov_recompute = True
+
+    fov_map = initialize_fov(game_map)
 
     key = libtcod.Key()
     mouse = libtcod.Mouse()
