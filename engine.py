@@ -30,7 +30,7 @@ def main():
         'light_ground': libtcod.Color(200, 180, 50)
     }
 
-    player = Entity(0, 0, '@', libtcod.white)
+    player = Entity(0, 0, '@', libtcod.white, 'Player', blocks=True)
     entities = [player]
 
     libtcod.console_set_custom_font(
