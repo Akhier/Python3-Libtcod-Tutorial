@@ -79,7 +79,7 @@ def main():
         exit = action.get('exit')
         fullscreen = action.get('fullscreen')
 
-        if move:
+        if move and game_state == GameStates.PLAYERS_TURN:
             dx, dy = move
             destination_x = player.x + dx
             destination_y = player.y + dy
