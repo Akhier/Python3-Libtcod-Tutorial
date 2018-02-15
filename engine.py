@@ -96,6 +96,8 @@ def main():
 
                     fov_recompute = True
 
+                game_state = GameStates.ENEMY_TURN
+
         if exit:
             return True
 
