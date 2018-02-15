@@ -1,6 +1,6 @@
 import libtcodpy as libtcod
 
-from entity import Entity
+from entity import Entity, get_blocking_entities_at_location
 from fov_functions import initialize_fov, recompute_fov
 from input_handlers import handle_keys
 from map_objects.game_map import GameMap
@@ -78,10 +78,20 @@ def main():
 
         if move:
             dx, dy = move
-            if not game_map.is_blocked(player.x + dx, player.y + dy):
-                player.move(dx, dy)
+            destination_x = player.x + dx
+            destination_y = player.y + dy
 
-                fov_recompute = True
+            if not game_map.is_blocked(destination_x, destination_y):
+                target = get_blocking_entities_at_location(
+                    entities, destination_x, destination_y)
+
+                if target:
+                    print('You kick the ' + target.name +
+                          ' in the shins, much to its annoyance!')
+                else:
+                    player.move(dx, dy)
+
+                    fov_recompute = True
 
         if exit:
             return True
