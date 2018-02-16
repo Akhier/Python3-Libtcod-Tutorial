@@ -7,6 +7,7 @@ from components.fighter import Fighter
 from entity import Entity
 from map_objects.rectangle import Rect
 from map_objects.tile import Tile
+from render_functions import RenderOrder
 
 
 class GameMap:
@@ -116,6 +117,7 @@ class GameMap:
 
                     monster = Entity(x, y, 'o', libtcod.desaturated_green,
                                      'Orc', blocks=True,
+                                     render_order=RenderOrder.ACTOR,
                                      fighter=fighter_component,
                                      ai=ai_component)
                 else:
@@ -124,6 +126,7 @@ class GameMap:
 
                     monster = Entity(x, y, 'T', libtcod.darker_green,
                                      'Troll', blocks=True,
+                                     render_order=RenderOrder.ACTOR,
                                      fighter=fighter_component,
                                      ai=ai_component)
 
