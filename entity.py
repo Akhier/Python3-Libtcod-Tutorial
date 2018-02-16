@@ -1,3 +1,6 @@
+import math
+
+
 class Entity:
     """
     A generic object to represent players, enemies, items, etc.
@@ -37,6 +40,11 @@ class Entity:
                 get_blocking_entities_at_location(
                     entities, self.x + dx, self.y + dy)):
             self.move(dx, dy)
+
+    def distance_to(self, other):
+        dx = other.x - self.x
+        dy = other.y - self.y
+        return math.sqrt(dx ** 2 + dy ** 2)
 
 
 def get_blocking_entities_at_location(entities, destination_x, destination_y):
