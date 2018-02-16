@@ -39,8 +39,11 @@ def render_all(con, entities, player, game_map, fov_map, fov_recompute,
                             con, x, y, colors.get('dark_ground'),
                             libtcod.BKGND_SET)
 
+    entities_in_render_order = sorted(
+        entities, key=lambda x: x.render_order.value)
+
     # Draw all entities in the list
-    for entity in entities:
+    for entity in entities_in_render_order:
         draw_entity(con, entity, fov_map)
 
     libtcod.console_set_default_foreground(con, libtcod.white)
