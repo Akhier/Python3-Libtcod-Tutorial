@@ -1,5 +1,13 @@
 import libtcodpy as libtcod
 
+from enum import Enum
+
+
+class RenderOrder(Enum):
+    CORPSE = 1
+    ITEM = 2
+    ACTOR = 3
+
 
 def render_all(con, entities, player, game_map, fov_map, fov_recompute,
                screen_width, screen_height, colors):
