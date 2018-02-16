@@ -109,9 +109,8 @@ def main():
 
         if game_state == GameStates.ENEMY_TURN:
             for entity in entities:
-                if entity != player:
-                    print('The ' + entity.name +
-                          ' ponders the meaning of its existence.')
+                if entity.ai:
+                    entity.ai.take_turn()
 
             game_state = GameStates.PLAYERS_TURN
 
