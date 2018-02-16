@@ -3,13 +3,16 @@ class Entity:
     A generic object to represent players, enemies, items, etc.
     """
 
-    def __init__(self, x, y, char, color, name, blocks=False):
+    def __init__(self, x, y, char, color, name,
+                 blocks=False, fighter=None, ai=None):
         self.x = x
         self.y = y
         self.char = char
         self.color = color
         self.name = name
         self.blocks = blocks
+        self.fighter = fighter
+        self.ai = ai
 
     def move(self, dx, dy):
         # Move the entity by a given amount
