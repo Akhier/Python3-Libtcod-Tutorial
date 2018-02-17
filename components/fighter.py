@@ -1,6 +1,6 @@
 import libtcodpy as libtcod
 
-from game_message import Message
+from game_messages import Message
 
 
 class Fighter:
