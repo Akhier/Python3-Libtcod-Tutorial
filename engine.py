@@ -84,7 +84,7 @@ def main():
 
         render_all(
             con, panel, entities, player, game_map, fov_map,
-            fov_recompute, screen_width, screen_height,
+            fov_recompute, message_log, screen_width, screen_height,
             bar_width, panel_height, panel_y, colors)
 
         fov_recompute = False
