@@ -2,7 +2,9 @@ import libtcodpy as libtcod
 
 
 def handle_keys(key):
-    key_char = chr(key.c)
+    key_char = None
+    if key.vk == libtcod.KEY_CHAR:
+        key_char = chr(key.c)
 
     # Movement keys
     if key.vk == libtcod.KEY_UP or key_char == 'k':
