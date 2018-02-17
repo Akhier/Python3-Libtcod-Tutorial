@@ -4,6 +4,7 @@ from components.fighter import Fighter
 from death_functions import kill_monster, kill_player
 from entity import Entity, get_blocking_entities_at_location
 from fov_functions import initialize_fov, recompute_fov
+from game_messages import MessageLog
 from game_states import GameStates
 from input_handlers import handle_keys
 from map_objects.game_map import GameMap
@@ -66,6 +67,8 @@ def main():
     fov_recompute = True
 
     fov_map = initialize_fov(game_map)
+
+    message_log = MessageLog(message_x, message_width, message_height)
 
     key = libtcod.Key()
     mouse = libtcod.Mouse()
