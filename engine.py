@@ -148,7 +148,7 @@ def main():
             previous_game_state != GameStates.PLAYER_DEAD and
                 inventory_index < len(player.inventory.items)):
             item = player.inventory.items[inventory_index]
-            print(item)
+            player_turn_results.extend(player.inventory.use(item))
 
         if exit:
             if game_state == GameStates.SHOW_INVENTORY:
