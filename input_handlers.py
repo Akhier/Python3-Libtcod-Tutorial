@@ -6,7 +6,7 @@ from game_states import GameStates
 def handle_keys(key, game_states):
     if game_states == GameStates.PLAYERS_TURN:
         return handle_player_turn_keys(key)
-    elif game_state == GameStates.PLAYER_DEAD:
+    elif game_states == GameStates.PLAYER_DEAD:
         return handle_player_dead_keys(key)
 
     return {}
