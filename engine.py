@@ -102,6 +102,7 @@ def main():
 
         move = action.get('move')
         pickup = action.get('pickup')
+        show_inventory = action.get('show_inventory')
         exit = action.get('exit')
         fullscreen = action.get('fullscreen')
 
