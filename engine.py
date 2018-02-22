@@ -156,7 +156,8 @@ def main():
             player_turn_results.extend(player.inventory.use(item))
 
         if exit:
-            if game_state == GameStates.SHOW_INVENTORY:
+            if game_state or (GameStates.SHOW_INVENTORY,
+                              GameStates.DROP_INVENTORY):
                 game_state = previous_game_state
             else:
                 return True
