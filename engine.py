@@ -145,6 +145,10 @@ def main():
             previous_game_state = game_state
             game_state = GameStates.SHOW_INVENTORY
 
+        if drop_inventory:
+            previous_game_state = game_state
+            game_state = GameStates.DROP_INVENTORY
+
         if (inventory_index is not None and
             previous_game_state != GameStates.PLAYER_DEAD and
                 inventory_index < len(player.inventory.items)):
