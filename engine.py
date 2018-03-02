@@ -79,6 +79,8 @@ def main():
     game_state = GameStates.PLAYERS_TURN
     previous_game_state = game_state
 
+    targeting_item = None
+
     while not libtcod.console_is_window_closed():
         libtcod.sys_check_for_event(
             libtcod.EVENT_KEY_PRESS | libtcod.EVENT_MOUSE, key, mouse)
@@ -180,6 +182,7 @@ def main():
             item_added = player_turn_result.get('item_added')
             item_consumed = player_turn_result.get('consumed')
             item_dropped = player_turn_results.get('item_dropped')
+            targeting = player_turn_result.get('targeting')
 
             if message:
                 message_log.add_message(message)
@@ -199,6 +202,14 @@ def main():
 
             if item_consumed:
                 game_state = GameStates.ENEMY_TURN
+
+            if targeting:
+                previous_game_state = GameStates.PLAYERS_TURN
+                game_state = GameStates.TARGETING
+
+                targeting_item = targeting
+
+                message_log.add_message(targeting_item.item.targeting_message)
 
             if item_dropped:
                 entities.append(item_dropped)
