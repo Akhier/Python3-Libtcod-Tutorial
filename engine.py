@@ -194,7 +194,7 @@ def main():
             dead_entity = player_turn_result.get('dead')
             item_added = player_turn_result.get('item_added')
             item_consumed = player_turn_result.get('consumed')
-            item_dropped = player_turn_results.get('item_dropped')
+            item_dropped = player_turn_result.get('item_dropped')
             targeting = player_turn_result.get('targeting')
             targeting_cancelled = player_turn_results.get(
                 'targeting_cancelled')
