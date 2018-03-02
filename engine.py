@@ -196,7 +196,7 @@ def main():
             item_consumed = player_turn_result.get('consumed')
             item_dropped = player_turn_result.get('item_dropped')
             targeting = player_turn_result.get('targeting')
-            targeting_cancelled = player_turn_results.get(
+            targeting_cancelled = player_turn_result.get(
                 'targeting_cancelled')
 
             if message:
