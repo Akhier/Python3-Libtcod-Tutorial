@@ -101,6 +101,6 @@ ENV/
 .mypy_cache/
 
 # shelve
-.bak
-.dat
-.dir
+.dat.bak
+.dat.dat
+.dat.dir
