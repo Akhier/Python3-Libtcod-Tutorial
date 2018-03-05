@@ -1,6 +1,6 @@
 import libtcodpy as libtcod
 
-from enum import Enum
+from enum import Enum, auto
 
 from game_states import GameStates
 
@@ -8,9 +8,10 @@ from menus import inventory_menu
 
 
 class RenderOrder(Enum):
-    CORPSE = 1
-    ITEM = 2
-    ACTOR = 3
+    STAIRS = auto()
+    CORPSE = auto()
+    ITEM = auto()
+    ACTOR = auto()
 
 
 def get_names_under_mouse(mouse, entities, fov_map):
