@@ -128,3 +128,19 @@ def handle_main_menu(key):
         return {'exit': True}
 
     return {}
+
+
+def handle_level_up_menu(key):
+    if key:
+        key_char = None
+        if key.vk == libtcod.KEY_CHAR:
+            key_char = chr(key.c)
+
+        if key_char == 'a':
+            return {'level_up': 'hp'}
+        elif key_char == 'b':
+            return {'level_up': 'str'}
+        elif key_char == 'c':
+            return {'level_up': 'def'}
+
+    return {}
