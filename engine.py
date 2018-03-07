@@ -57,6 +57,7 @@ def play_game(player, entities, game_map, message_log,
         drop_inventory = action.get('drop_inventory')
         inventory_index = action.get('inventory_index')
         take_stairs = action.get('take_stairs')
+        level_up = action.get('level_up')
         exit = action.get('exit')
         fullscreen = action.get('fullscreen')
 
