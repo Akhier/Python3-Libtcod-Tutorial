@@ -204,6 +204,20 @@ def play_game(player, entities, game_map, message_log,
 
                 message_log.add_message(Message('Targeting cancelled'))
 
+            if xp:
+                leveled_up = player.level.add_xp(xp)
+                message_log.add_message(
+                    Message('You gain {0} experience points.'.format(xp)))
+
+                if leveled_up:
+                    message_log.add_message(
+                        Message('Your battle skills grow stronger! ' +
+                                'You reached level {0}'.format(
+                                    player.level.current_level) + '!',
+                                libtcod.yellow))
+                    previous_game_state = game_state
+                    game_state = GameStates.LEVEL_UP
+
         if game_state == GameStates.ENEMY_TURN:
             for entity in entities:
                 if entity.ai:
