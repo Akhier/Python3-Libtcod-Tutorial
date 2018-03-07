@@ -165,6 +165,7 @@ def play_game(player, entities, game_map, message_log,
             item_dropped = player_turn_result.get('item_dropped')
             targeting = player_turn_result.get('targeting')
             targeting_cancelled = player_turn_result.get('targeting_cancelled')
+            xp = player_turn_result.get('xp')
 
             if message:
                 message_log.add_message(message)
