@@ -119,6 +119,10 @@ def render_all(con, panel, entities, player, game_map, fov_map, fov_recompute,
         inventory_menu(con, inventory_title, player.inventory, 50,
                        screen_width, screen_height)
 
+    elif game_state == GameStates.LEVEL_UP:
+        level_up_menu(con, 'Level up! Choose a stat to raise:',
+                      player, 40, screen_width, screen_height)
+
 
 def clear_all(con, entities):
     for entity in entities:
