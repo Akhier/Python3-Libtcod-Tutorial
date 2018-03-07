@@ -161,7 +161,8 @@ def play_game(player, entities, game_map, message_log,
 
         if exit:
             if game_state in (
-                    GameStates.SHOW_INVENTORY, GameStates.DROP_INVENTORY):
+                    GameStates.SHOW_INVENTORY, GameStates.DROP_INVENTORY,
+                    GameStates.CHARACTER_SCREEN):
                 game_state = previous_game_state
             elif game_state == GameStates.TARGETING:
                 player_turn_results.append({'targeting_cancelled': True})
