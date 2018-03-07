@@ -4,7 +4,7 @@ from enum import Enum, auto
 
 from game_states import GameStates
 
-from menus import inventory_menu
+from menus import inventory_menu, level_up_menu
 
 
 class RenderOrder(Enum):
