@@ -144,6 +144,10 @@ def play_game(player, entities, game_map, message_log,
 
             game_state = previous_game_state
 
+        if show_character_screen:
+            previous_game_state = game_state
+            game_state = GameStates.CHARACTER_SCREEN
+
         if game_state == GameStates.TARGETING:
             if left_click:
                 target_x, target_y = left_click

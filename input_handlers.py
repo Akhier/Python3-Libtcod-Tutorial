@@ -14,6 +14,8 @@ def handle_keys(key, game_state):
         return handle_inventory_keys(key)
     elif game_state == GameStates.LEVEL_UP:
         return handle_level_up_menu(key)
+    elif game_state == GameStates.CHARACTER_SCREEN:
+        return handle_character_screen(key)
 
     return {}
 
@@ -104,6 +106,29 @@ def handle_mouse(mouse):
     return {}
 
 
+def handle_level_up_menu(key):
+    if key:
+        key_char = None
+        if key.vk == libtcod.KEY_CHAR:
+            key_char = chr(key.c)
+
+        if key_char == 'a':
+            return {'level_up': 'hp'}
+        elif key_char == 'b':
+            return {'level_up': 'str'}
+        elif key_char == 'c':
+            return {'level_up': 'def'}
+
+    return {}
+
+
+def handle_character_screen(key):
+    if key.vk == libtcod.KEY_ESCAPE:
+        return {'exit': True}
+
+    return {}
+
+
 def handle_inventory_keys(key):
     index = key.c - ord('a')
 
@@ -134,18 +159,3 @@ def handle_main_menu(key):
 
     return {}
 
-
-def handle_level_up_menu(key):
-    if key:
-        key_char = None
-        if key.vk == libtcod.KEY_CHAR:
-            key_char = chr(key.c)
-
-        if key_char == 'a':
-            return {'level_up': 'hp'}
-        elif key_char == 'b':
-            return {'level_up': 'str'}
-        elif key_char == 'c':
-            return {'level_up': 'def'}
-
-    return {}
