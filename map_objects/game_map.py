@@ -11,7 +11,7 @@ from game_messages import Message
 from item_functions import cast_confuse, cast_fireball, cast_lightning, heal
 from map_objects.rectangle import Rect
 from map_objects.tile import Tile
-from random_utils import random_choice_from_dict
+from random_utils import from_dungeon_level, random_choice_from_dict
 from render_functions import RenderOrder
 
 
@@ -120,14 +120,29 @@ class GameMap:
             self.tiles[x][y].blocked = False
             self.tiles[x][y].block_sight = False
 
-    def place_entities(self, room, entities, max_monsters_per_room,
-                       max_items_per_room):
+    def place_entities(self, room, entities):
+        max_monsters_per_room = from_dungeon_level(
+            [[2, 1], [3, 4], [5, 6]], self.dungeon_level)
+        max_items_per_room = from_dungeon_level(
+            [[1, 1], [2, 4]], self.dungeon_level)
+
         number_of_monsters = randint(0, max_monsters_per_room)
         number_of_items = randint(0, max_items_per_room)
 
-        monster_chances = {'orc': 80, 'troll': 20}
-        item_chances = {'healing_potion': 70, 'lightning_scroll': 10,
-                        'fireball_scroll': 10, 'confusion_scroll': 10}
+        monster_chances = {
+            'orc': 80,
+            'troll': from_dungeon_level(
+                [[15, 3], [30, 5], [60, 7]], self.dungeon_level)
+        }
+        item_chances = {
+            'healing_potion': 35,
+            'lightning_scroll': from_dungeon_level(
+                [[25, 4]], self.dungeon_level),
+            'fireball_scroll': from_dungeon_level(
+                [[25, 6]], self.dungeon_level),
+            'confusion_scroll': from_dungeon_level(
+                [[10, 2]], self.dungeon_level)
+        }
 
         for i in range(number_of_monsters):
             # Choose a random location in the room
