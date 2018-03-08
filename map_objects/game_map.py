@@ -153,7 +153,7 @@ class GameMap:
 
                 if monster_choice == 'orc':
                     fighter_component = Fighter(
-                        hp=10, defense=0, power=3, xp=35)
+                        hp=20, defense=0, power=4, xp=35)
                     ai_component = BasicMonster()
 
                     monster = Entity(x, y, 'o', libtcod.desaturated_green,
@@ -163,7 +163,7 @@ class GameMap:
                                      ai=ai_component)
                 else:
                     fighter_component = Fighter(
-                        hp=16, defense=1, power=4, xp=100)
+                        hp=30, defense=2, power=8, xp=100)
                     ai_component = BasicMonster()
 
                     monster = Entity(x, y, 'T', libtcod.darker_green,
