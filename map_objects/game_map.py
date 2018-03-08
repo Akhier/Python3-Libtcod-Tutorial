@@ -183,7 +183,7 @@ class GameMap:
                 item_choice = random_choice_from_dict(item_chances)
 
                 if item_choice == 'healing_potion':
-                    item_component = Item(use_function=heal, amount=4)
+                    item_component = Item(use_function=heal, amount=40)
                     item = Entity(x, y, '!', libtcod.violet, 'Healing Potion',
                                   render_order=RenderOrder.ITEM,
                                   item=item_component)
@@ -193,7 +193,7 @@ class GameMap:
                         targeting_message=Message(
                             'Left-click a target tile for the fireball, or ' +
                             'right-click to cancel.', libtcod.light_cyan),
-                        damage=12, radius=3)
+                        damage=25, radius=3)
                     item = Entity(x, y, '#', libtcod.red, 'Fireball Scroll',
                                   render_order=RenderOrder.ITEM,
                                   item=item_component)
@@ -208,7 +208,7 @@ class GameMap:
                         render_order=RenderOrder.ITEM, item=item_component)
                 else:
                     item_component = Item(use_function=cast_lightning,
-                                          damage=20, maximum_range=5)
+                                          damage=40, maximum_range=5)
                     item = Entity(
                         x, y, '#', libtcod.yellow, 'Lightning Scroll',
                         render_order=RenderOrder.ITEM, item=item_component)
